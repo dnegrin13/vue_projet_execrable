@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for et json</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="character in characters">{{character.firstName}} {{character.lastName}} {{character.age}} ans.</li>
+        </ul>
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                       characters: [
+                        {
+                            firstName: "Hercule",
+                            lastName: "Tremoudugenou",
+                            age: "25"
+                        },
+                        {
+                            firstName: "josé",
+                            lastName: "podalites",
+                            age: "45"
+                        },
+                        {
+                            firstName: "herver",
+                            lastName: "de la compostelle",
+                            age: "10"
+                        }
+                       ]
+                    }
+                },
+                
+               
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-text v-html</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="url" v-bind:alt="alt" :id="id">
+        <!-- v-bind:src == :src -->
+        <p v-text="brutText"></p>
+        <p v-html="italicText"></p>
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                        url: 'https://www.jaitoutcompris.com/img/encyclo/autruche.jpg',
+                        id: "autruche_image",
+                        alt: "Une magnifique beauté naturelle",
+                        brutText: "une magnifique beauté naturelle",
+                        italicText: "<i>Elle s'appelle Gertrude.</i>"
+                    }
+                },
+               
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>

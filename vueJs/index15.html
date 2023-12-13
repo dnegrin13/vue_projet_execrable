@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if et v-else partie 1</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+      <input type="checkbox" v-model="isChecked">
+      <label v-if="isChecked">la checkbox est cochée</label>
+      <label v-else="isChecked">la checkbox n'est pas cochée</label>
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                        isChecked: false
+                    }
+                }
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>

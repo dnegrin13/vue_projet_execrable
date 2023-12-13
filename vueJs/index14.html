@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bind de style</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <select v-model="color">
+            <option disabled value="">choisissez une couleur</option>
+            <option value="red">rouge</option>
+            <option value="green">vert</option>
+            <option value="chartreuse">chartreuse</option>
+        </select>
+        <select v-model="size">
+            <option disabled value="">choisissez une taille</option>
+            <option value="16px">16px</option>
+            <option value="24px">24px</option>
+            <option value="32px">32px</option>
+        </select>
+
+        <p :style="{color: color, fontSize: size}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum eos cumque ab officia dignissimos, sint provident earum a nihil quia vel cum reprehenderit dolorem sapiente adipisci nemo atque accusamus mollitia?</p>
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                       color: "",
+                       size: ""
+                    }
+                }
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>

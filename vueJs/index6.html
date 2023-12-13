@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binding Bidirectionel + v-bind</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name" placeholder="votre nom" v-on:keyup="copy">
+        <input type="text" :value="upperName">
+       
+        <p>Case cochées : {{cases}}</p>
+
+        <input type="checkbox" v-model="cases" value="HTML">
+        <label for="">HTML</label>
+
+        <input type="checkbox" v-model="cases" value="CSS">
+        <label for="">CSS</label>
+
+        <input type="checkbox" v-model="cases" value="Javascript">
+        <label for="">Javascript</label>
+
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                        name: "",
+                        upperName: "",
+                        cases: []
+                    }
+                },
+                methods: {
+                    copy() {
+                        this.upperName = this.name.toUpperCase();
+                    }
+                }
+               
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>

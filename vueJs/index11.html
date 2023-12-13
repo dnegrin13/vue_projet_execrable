@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arguments dynamiques</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="radio" v-model="choice" value="click"><label>un clic</label>
+        <input type="radio" v-model="choice" value="dblclick"><label>double clic</label>
+        <img src="https://www.jaitoutcompris.com/img/encyclo/autruche.jpg" alt="une belle autruche" :width="size" @[choice]="changeSize">
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                       size: 200,
+                       choice: "click"
+                    }
+                },
+                methods: {
+                   changeSize() {
+                    this.size = this.size * 1.1;
+                   }
+                }
+               
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binding Bidirectionel</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Bonjour {{name}}</h1>
+       <input type="text" v-model="name" placeholder="entrer votre nom">
+
+       <!-- Exercice, avec un select affiché la voiture séléctionner dans un p exemple: tu as sélétionné: merco -->
+        <p>tu as séléctionner: {{car}}</p>
+       <select v-model="car">
+            <option disabled value="">Veuillez choisir un vehicule</option>
+            <option value="mercedes sls">mercedes sls</option>
+            <option value="bmw e30">bmw e30</option>
+            <option value="renault clio 2">renault clio 2</option>
+            <option value="peugeot 306">peugeot 306</option>
+            <option value="citroen xsara picasso">citroen xsara picasso</option>
+       </select>
+
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                        name: "",
+                        car: ""
+                    }
+                },
+               
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>

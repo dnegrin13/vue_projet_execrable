@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion evenementiel</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+       <img src="https://www.jaitoutcompris.com/img/encyclo/autruche.jpg" alt="une autruche qui regarde pierre de travers" @mousemove="getCoordinate($event)">
+       <p>la souris se trouve pas du tout : {{coordinate}}</p>
+
+        <!-- v-on: = @ -->
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                       coordinate: ""
+                    }
+                },
+                methods: {
+                    getCoordinate(e) {
+                        this.coordinate = "x= " + e.offsetX + ", y= " + e.offsetY;
+                    }
+                }
+               
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>

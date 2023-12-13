@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evenement</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <button @click="alerter">Valider</button>
+
+        <!-- v-on: = @ -->
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                       name: "",
+                    }
+                },
+                methods: {
+                    alerter() {
+                        alert("bonjour " + this.name);
+                    }
+                }
+               
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>

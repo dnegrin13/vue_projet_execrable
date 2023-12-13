@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initialisation et interpolation</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--  Ici, on utilise une interpolation ou "moustache" pour récupérer la variable dans le model -->
+        <h1> Ma value est {{value}}</h1>
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                        value : 40
+                    }
+                }
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>

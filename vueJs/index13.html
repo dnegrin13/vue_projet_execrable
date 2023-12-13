@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classe conditionelles</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+      <p :class="{red: isRed}">Text en rouge</p>
+      <button @click="redizer">Rougissons le text</button>
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                        isRed: false
+                    }
+                },
+                methods: {
+                    redizer() {
+                        return this.isRed = !this.isRed
+                    }
+                }
+                
+               
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>

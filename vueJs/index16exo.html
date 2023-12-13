@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if et v-else partie 2</title>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="car" @keydown.enter="addCar">
+        <div v-for="c in cars">
+            <input type="color" v-model="c.color">
+            <p :style="{color: c.color}">{{c.car}} est de cette couleur</p>
+        </div>
+    </div>
+
+    <script type="module">
+
+        app = Vue.createApp(
+            {
+                //model, ici les données de la page.
+                data() {
+                    return {
+                        cars: [],
+                        car: ""
+                    }
+                },
+                methods: {
+                    addCar() {
+                        this.cars.push({car: this.car, color: "#000"})
+                        this.car = ""
+                    }
+                }
+            }
+        ).mount("#app");
+
+
+
+    </script>
+</body>
+</html>
